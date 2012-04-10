@@ -1,0 +1,5 @@
+## Velocity's VM_global_library.vm
+
+#macro(hello $name)
+	Hello $name!
+#end
