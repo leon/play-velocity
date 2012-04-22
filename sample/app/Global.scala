@@ -1,4 +1,5 @@
 import play.api._
+import play.api.Play.current
 import models._
 import se.radley.plugin._
 

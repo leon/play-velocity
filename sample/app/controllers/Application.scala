@@ -7,9 +7,22 @@ import se.radley.plugin.velocity._
 
 object Application extends Controller {
 
-  def index = Action { implicit request =>
-    Ok(view("main.vm", Map(
-      "title" -> "Hello There"
+  def renderHtml = Action { implicit request =>
+    Ok(html("main.vm", Map(
+      "title" -> "Hello There",
+      "name" -> "Leon"
+    )))
+  }
+
+  def renderTxt = Action { implicit request =>
+    Ok(txt("text.vm", Map(
+      "name" -> "Leon"
+    )))
+  }
+
+  def renderXml = Action { implicit request =>
+    Ok(xml("xml.vm", Map(
+      "name" -> "Leon"
     )))
   }
 }

@@ -12,8 +12,11 @@ object ApplicationBuild extends Build {
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
-      // Only used to be able to develop locally, remove it!
-      resolvers += Resolver.file("Local Ivy", file("/Users/leon/.ivy2/local"))(Resolver.ivyStylePatterns)
+      resolvers:= Seq(
+      	"Sonatype Snapshots" at "https://oss.sonatype.org/content/groups/public/",
+      	"Typesafe Snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
+      	"Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases"
+      )
     )
 
 }
