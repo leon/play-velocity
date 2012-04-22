@@ -9,16 +9,19 @@ object ProjectBuild extends Build {
     organization := "se.radley",
     version := buildVersion,
     scalaVersion := "2.9.1",
-    resolvers += "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/",
     resolvers += "Typesafe Snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
-    libraryDependencies += "play" %% "play" % "[2.0,)",
-    libraryDependencies += "org.apache.velocity" % "velocity" % "1.7",
-
+    resolvers += "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/",
+    libraryDependencies ++= Seq(
+      "play" %% "play" % "[2.0,)",
+      "play" %% "play-test" % "[2.0,)",
+      ("org.apache.velocity" % "velocity" % "1.7").exclude("commons-logging", "commons-logging"),
+      ("org.apache.velocity" % "velocity-tools" % "2.0").exclude("commons-logging", "commons-logging")
+    ),
     publishMavenStyle := true,
     publishArtifact in Test := false,
     pomIncludeRepository := { _ => false },
     pomExtra := (
-      <url>http://jsuereth.com/scala-arm</url>
+      <url>https://github.com/leon/play-velocity</url>
       <licenses>
         <license>
           <name>Apache 2.0</name>
