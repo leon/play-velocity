@@ -14,7 +14,6 @@ import VelocityExceptions._
 import org.apache.velocity.exception._
 import org.apache.velocity.runtime.parser.ParseException
 import collection.mutable.HashMap
-import scala.collection.JavaConverters._
 
 class VelocityPlugin(app: Application) extends Plugin {
 
@@ -97,13 +96,15 @@ class VelocityPlugin(app: Application) extends Plugin {
       new VelocityContext(toolContext)
     }
 
+    import scala.collection.JavaConverters._
+
     context.put("play", Play.current)
     context.put("request", request)
 
     context.put("messages", TemplateMessages)
     context.put("session", request.session.data.asJava)
     context.put("flash", request.flash.data.asJava)
-    context.put("routes", Play.routes.get)
+    context.put("routes", Play.routes)
 
     context
   }
