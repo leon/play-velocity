@@ -18,7 +18,7 @@ Then we need to add a resolver so that `sbt` knows where to get it from
 
 We now need to register the plugin, this is done by creating(or appending) to the `conf/play.plugins` file
 
-    550:se.radley.plugin.velocity.VelocityPlugin
+    2000:se.radley.plugin.velocity.VelocityPlugin
 
 We continue to edit the `conf/application.conf` file. We need to disable some plugins that we don't need.
 Add these lines:
